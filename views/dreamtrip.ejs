@@ -11,8 +11,30 @@
 
         <%- include header.ejs %>
 
+        <nav>
+            <div class="navbar">
+                <div>
+                <select id="filterLocation" name="filterLocation">
+                    <option value="">Filter by Destination</option>
+                    <% data.forEach(function(element){ %>
+                    <option value="<%= element.location  %>"><%= element.location  %></option>
+                    <% }) %>
+                </select>
+                </div>
+                <div>
+                <select id="filterCost" name="filterCost">
+                    <option value="">Filter by Cost</option>
+                    <% data.forEach(function(element){ %>
+                    <option value="<%= element.cost  %>"><%= element.cost  %></option>
+                    <% }) %>
+                </select>
+                </div>
+            </div>
+        </nav>
+
         <main>
             <% data.forEach(trip =>{ %>
+                <a href="/trip/<%= trip.id %>">
                 <div class="postCard">
                     <h1><%= trip.title %></h1>
                     <table >
@@ -38,13 +60,8 @@
                         </tr>
                     </table>
 
-                    <div>
-                            <a href="/trip/<%= trip.id %>/edit"> Edit </a> |
-                            <a href="/trip/<%= trip.id %>/delete"> Delete </a> |
-                            <a href="/trip/<%= trip.id %>"> Detail </a>
-                    </div>
-
                 </div>
+                </a>
             <% }) %>
 
 
@@ -70,35 +87,7 @@
             </div>
         </aside>
 
-        <nav>
-            <div class="asideForm">
-                <hr>
-                <h2>FILTER</h2>
-                
-                <fieldset>
-                        <div>
-                            <label for="filterlocation">Choose Destination</label>
-                            <div>
-                            <select id="filterlocation" name="filterlocation">
-                
-                                <% data.forEach(function(element){ %>
-                                <option value="<%= element.id  %>"><%= element.id  %></option>
-                                <% }) %>
-                
-                            </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div>
-                            <div>
-                            <button id="submit" name="submit" class="submit">Filter Location</button>
-                            </div>
-                        </div>
-                </fieldset>
-
-
-            </div>
-        </nav>
+        
 
         <section></section>
         <footer></footer>

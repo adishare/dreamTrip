@@ -5,9 +5,10 @@
 }
 body {
     text-align: center;
-    background-color: #D3D4D9;
+    background-color: #CDEDF6;
 }
 /* content container ------------------- */
+
 #content{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -16,8 +17,9 @@ body {
     margin: 0 auto;
     grid-template-areas: 
     "header header header header"
+    "nav nav nav nav"
     "main main main main"
-    "aside aside nav nav"
+    "aside aside aside aside"
     "section section section section"
     "footer footer footer footer";
     
@@ -26,8 +28,12 @@ body {
     /* background: #4B88A2; */
 }
 /* header---------------------------- */
+header a {
+    text-decoration: none;
+    color: white;
+}
 header {
-    background-color: #252627;
+    background-color: #EF7B45;
     grid-area: header;
     display: grid;
     grid-template-columns: 1fr;
@@ -35,7 +41,7 @@ header {
     width: 100%;
     margin: 0 auto;
     grid-gap: 10px;
-    color: #D3D4D9;
+    color: rgb(255, 255, 255);
     text-shadow: 0 0 10px gray;
 }
 header div{
@@ -58,20 +64,40 @@ header div{
     text-shadow: 0px 0px 4px #FFF9FB;
     cursor: pointer;
 }
+
+
+/*  navbar ---------------------*/
+
+.navbar {
+    background-color: #D84727;
+    color: #FFF9FB;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+}
+select ,option {
+    padding: 10px 10px;
+    width: 180px;
+}
+
+
 /*  main conten post ---------------------*/
+main a {
+    text-decoration: none;
+    color: #252627;
+}
 main {
     grid-area: main;
     padding: 10px;
     display: block;
-    min-height: 500px;    
+    min-height: 500px; 
+    margin-bottom: 20px;   
 }
-
-.editorWrapper {
-
-}
-
 .postCard {
-    border-top: 4px solid #BB0A21;
+    border-top: 4px solid rgb(252, 167, 55);
     background-color: #FFF9FB;
     min-height: 150px;
     border-radius: 4px;
@@ -80,22 +106,33 @@ main {
     padding: 15px;
     text-align: justify;
     color: #252627;
-    filter: drop-shadow(0 0 2px #252627)
-    
+    filter: drop-shadow(0 0 2px #252627);
+    margin-bottom: 15px;
+    transition: 0.3s;
+    display: grid;
 }
 .postCard h1{
     text-align: center;
     font-size: 24px;
-    background-color: #252627;
+    background-color: #4B88A2;
     margin: -15px -15px 15px -15px;
     padding: 5px;
     color: #FFF9FB;
+    transition: .4s;
 }
 .postCard img {
     width: 100%;
     height: 80px;
     object-fit: cover;
     margin: -15px -15px 15px -15px;
+}
+.postCard:hover{
+    background-color: #ffffff;
+    color: #222222;
+}
+.postCard h1:hover{
+    background-color: #D84727;
+    color: #ffffff;
 }
 
 
@@ -152,12 +189,12 @@ nav {
 /* section ----------------------------- */
 section {
     grid-area: section;
-    background-color: #BB0A21;
+    background-color: #D84727;
     min-height: 300px;
 }
 footer {
     grid-area: footer;
-    background-color: #252627;
+    background-color: #EF7B45;
 }
 
 
@@ -166,8 +203,9 @@ footer {
     #content{
         grid-template-areas: 
         "header header header header"
-        "main main main nav"
-        "main main main aside"
+        "nav nav nav nav"
+        "main main main main"
+        "aside aside aside aside"
         "section section section section"
         "footer footer footer footer";
     }
