@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DreamTrip</title>
+    <link rel="stylesheet" href="/styles/dreamtrip.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Old+Standard+TT" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <div id="content">
+
+        <%- include header.ejs %>
+
+        <main style="column-count:1;">
+            <div class="editorWrapper">
+            <div class="postCard">
+                <h1>EDIT TRIP</h1>
+                <form action="edit" method="post">
+                    <input type="text" name="title" placeholder="Trip Title" value="<%= data.title %>">
+                    <input type="text" name="location" placeholder="Location" value="<%= data.location %>">
+                    <input onfocus="(this.type='date')" name="date" placeholder="Date" max="2019-12-31" min="2018-07-31" value="<%= data.date %>">
+                    <input type="text" name="meet_point" placeholder="Meet Point" value="<%= data.meet_point %>">
+                    <input type="number" name="cost" min="0" max="99999999" step="any" placeholder="Sharing Cost" value="<%= data.cost %>">
+                    <input type="number" name="max" min="2" max="200" placeholder="Max Quota" value="<%= data.max %>">
+                    <div>
+                        <button type="submit" class="newTripBtn">SAVE</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </main>
+
+        <aside>
+           
+        </aside>
+
+        <nav>
+            
+        </nav>
+
+        <section></section>
+        <footer></footer>
+
+    </div>
+    <script src="/script/dreamtrip.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+/* Smartphones (portrait) ———– */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align: center;
+    background-color: #D3D4D9;
+}
+/* content container ------------------- */
+#content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(60px, auto);
+    max-width: 100%;
+    margin: 0 auto;
+    grid-template-areas: 
+    "header header header header"
+    "main main main main"
+    "aside aside nav nav"
+    "section section section section"
+    "footer footer footer footer";
+    
+}
+#content >*{
+    /* background: #4B88A2; */
+}
+/* header---------------------------- */
+header {
+    background-color: #252627;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    width: 100%;
+    margin: 0 auto;
+    grid-gap: 10px;
+    color: #D3D4D9;
+    text-shadow: 0 0 10px gray;
+}
+header div{
+    align-self: center;
+}
+.logoSect {
+    padding: 5px;
+    font-size: 40px;
+}
+.linkBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(20px,auto);
+    font-size: 20px;
+}
+.linkBar p:hover {
+    border-bottom: 5px solid #BB0A21;
+    margin-bottom: -5px;
+    transition: .3s;
+    text-shadow: 0px 0px 4px #FFF9FB;
+    cursor: pointer;
+}
+/*  main conten post ---------------------*/
+main {
+    grid-area: main;
+    padding: 10px;
+    display: block;
+    min-height: 500px;    
+}
+
+.editorWrapper {
+
+}
+
+.postCard {
+    border-top: 4px solid #BB0A21;
+    background-color: #FFF9FB;
+    min-height: 150px;
+    border-radius: 4px;
+    overflow: hidden;
+    break-inside: avoid;
+    padding: 15px;
+    text-align: justify;
+    color: #252627;
+    filter: drop-shadow(0 0 2px #252627)
+    
+}
+.postCard h1{
+    text-align: center;
+    font-size: 24px;
+    background-color: #252627;
+    margin: -15px -15px 15px -15px;
+    padding: 5px;
+    color: #FFF9FB;
+}
+.postCard img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    margin: -15px -15px 15px -15px;
+}
+
+
+
+/* aside ---------------------------------- */
+aside {
+    grid-area: aside;
+}
+.asideForm *{
+    margin-bottom: 15px;
+}
+.asideForm {
+    background-color: #4B88A2;
+    color: #FFF9FB;
+    padding: 10px;
+    height: 100%;
+    
+}
+textarea , input {
+    width: 90%;
+    min-height: 30px;
+    padding: 5px;
+    font-size: 16px;
+}
+textarea {
+    height: 150px;
+}
+.questionBtn , .newTripBtn {
+    border: 2px solid#D3D4D9;
+    height: 40px;
+    display: block;
+    width: 120px;
+    margin: 0 auto;
+    padding-top: 10px;
+    border-radius: 30px;
+    transition: .3s;
+}
+.questionBtn:hover , .newTripBtn:hover {
+    cursor: pointer;
+    background-color: #BB0A21;
+}
+form button {
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    background-color: #4B88A2;
+}
+
+nav {
+    grid-area: nav;
+}
+
+
+/* section ----------------------------- */
+section {
+    grid-area: section;
+    background-color: #BB0A21;
+    min-height: 300px;
+}
+footer {
+    grid-area: footer;
+    background-color: #252627;
+}
+
+
+/* dekstop responsive -------------------------- */
+@media screen and (min-width:1000px){
+    #content{
+        grid-template-areas: 
+        "header header header header"
+        "main main main nav"
+        "main main main aside"
+        "section section section section"
+        "footer footer footer footer";
+    }
+    .linkBar {
+        grid-gap: 50px;
+        justify-self: end;
+        margin-right: 60px;
+        font-size: 30px;
+    }
+    main {
+        column-count: 3;
+    }
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+

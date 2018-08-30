@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DreamTrip</title>
+    <link rel="stylesheet" href="/styles/dreamtrip.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Old+Standard+TT" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <div id="content">
+
+        <%- include header.ejs %>
+
+        <main>
+            <% data.forEach(trip =>{ %>
+                <div class="postCard">
+                    <h1><%= trip.title %></h1>
+                    <table >
+                        <tr>
+                            <th>Destinasi</th>
+                            <td><%= trip.location  %></td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal</th>
+                            <td><%= trip.date  %></td>
+                        </tr>
+                        <tr>
+                            <th>Biaya</th>
+                            <td><%= trip.cost  %></td>
+                        </tr>
+                        <tr>
+                            <th>Meet Point</th>
+                            <td><%= trip.meet_point  %></td>
+                        </tr>
+                        <tr>
+                            <th>Max Participant</th>
+                            <td><%= trip.max  %></td>
+                        </tr>
+                    </table>
+
+                    <div>
+                            <a href="/trip/<%= trip.id %>/edit"> Edit </a> |
+                            <a href="/trip/<%= trip.id %>/delete"> Delete </a> |
+                            <a href="/trip/<%= trip.id %>"> Detail </a>
+                    </div>
+
+                </div>
+            <% }) %>
+
+
+        </main>
+
+        <aside>
+            <div class="asideForm">
+                <hr>
+                <h2>CREATE NEW TRIP</h2>
+
+                <form action="trip/add" method="post">
+                    <input type="text" name="title" placeholder="Trip Title">
+                    <input type="text" name="location" placeholder="Location">
+                    <input onfocus="(this.type='date')" name="date" placeholder="Date" max="2019-12-31" min="2018-07-31">
+                    <input type="text" name="meet_point" placeholder="Meet Point">
+                    <input type="number" name="cost" min="0" max="99999999" step="any" placeholder="Sharing Cost">
+                    <input type="number" name="max" min="2" max="200" placeholder="Max Quota">
+                    <div>
+                        <button type="submit" class="newTripBtn">CREATE TRIP</button>
+                    </div>
+                </form>
+                
+            </div>
+        </aside>
+
+        <nav>
+            <div class="asideForm">
+                <hr>
+                <h2>FILTER</h2>
+                
+                <fieldset>
+                        <div>
+                            <label for="filterlocation">Choose Destination</label>
+                            <div>
+                            <select id="filterlocation" name="filterlocation">
+                
+                                <% data.forEach(function(element){ %>
+                                <option value="<%= element.id  %>"><%= element.id  %></option>
+                                <% }) %>
+                
+                            </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <div>
+                            <button id="submit" name="submit" class="submit">Filter Location</button>
+                            </div>
+                        </div>
+                </fieldset>
+
+
+            </div>
+        </nav>
+
+        <section></section>
+        <footer></footer>
+
+    </div>
+    
+</body>
+</html>

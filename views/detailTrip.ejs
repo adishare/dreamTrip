@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DreamTrip</title>
+    <link rel="stylesheet" href="/styles/dreamtrip.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Old+Standard+TT" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <div id="content">
+        <%- include header.ejs %>
+
+        <main style="column-count:1;">
+                <div class="postCard">
+                        <h1><%= data.title %></h1>
+                        <table >
+                            <tr>
+                                <th>Destinasi</th>
+                                <td><%= data.location  %></td>
+                            </tr>
+                            <tr>
+                                <th>Tanggal</th>
+                                <td><%= data.date  %></td>
+                            </tr>
+                            <tr>
+                                <th>Biaya</th>
+                                <td><%= data.cost  %></td>
+                            </tr>
+                            <tr>
+                                <th>Meet Point</th>
+                                <td><%= data.meet_point  %></td>
+                            </tr>
+                            <tr>
+                                <th>Max Participant</th>
+                                <td><%= data.max  %></td>
+                            </tr>
+                        </table>
+    
+                       <div>
+                           <h2>Joined :</h2>
+                       </div>
+                        <table border="1">
+                                <tr>
+                                    <th>NO</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <% var counter = 0 %>
+                                <% users.forEach(user=>{ %>
+                                <tr>
+                                    <td><%= counter+=1 %></td>
+                                    <td><%= user.name %></td>
+                                    <td><%= user.age %></td>
+                                    <td><%= user.gender %></td>
+                                    <td><%= user.email %></td>
+                                    <td>
+                                        <a href="#"> -Unset- </a>
+                                        
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        
+                        </table>
+
+
+                </div>
+        </main>
+
+        <aside>
+            <div class="asideForm">
+               
+                
+            </div>
+        </aside>
+
+        <nav>
+            <div class="asideForm">
+                
+            </div>
+        </nav>
+
+        <section></section>
+        <footer></footer>
+
+    </div>
+    <script src="/script/dreamtrip.js"></script>
+</body>
+</html>
