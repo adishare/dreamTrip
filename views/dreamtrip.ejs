@@ -13,22 +13,17 @@
 
         <nav>
             <div class="navbar">
+                <form action="/trip/filter" method="POST">
                 <div>
-                <select id="filterLocation" name="filterLocation">
-                    <option value="">Filter by Destination</option>
+                <select id="filterLocation" name="filterLocation" onchange="changeFunc();">
+                    <option>Filter by Destination</option>
                     <% data.forEach(function(element){ %>
                     <option value="<%= element.location  %>"><%= element.location  %></option>
                     <% }) %>
                 </select>
+                <button type="submit">Filter</button>
                 </div>
-                <div>
-                <select id="filterCost" name="filterCost">
-                    <option value="">Filter by Cost</option>
-                    <% data.forEach(function(element){ %>
-                    <option value="<%= element.cost  %>"><%= element.cost  %></option>
-                    <% }) %>
-                </select>
-                </div>
+                </form>
             </div>
         </nav>
 
@@ -60,6 +55,7 @@
                         </tr>
                     </table>
 
+
                 </div>
                 </a>
             <% }) %>
@@ -89,7 +85,6 @@
 
         
 
-        <section></section>
         <footer></footer>
 
     </div>

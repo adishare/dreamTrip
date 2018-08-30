@@ -6,6 +6,8 @@
 body {
     text-align: center;
     background-color: #CDEDF6;
+    /* background: linear-gradient(to bottom, rgb(216,71,39),white); */
+    
 }
 /* content container ------------------- */
 
@@ -20,7 +22,6 @@ body {
     "nav nav nav nav"
     "main main main main"
     "aside aside aside aside"
-    "section section section section"
     "footer footer footer footer";
     
 }
@@ -33,7 +34,8 @@ header a {
     color: white;
 }
 header {
-    background-color: #EF7B45;
+    /* background-color: #EF7B45; */
+    background: linear-gradient(to top, rgb(216,71,39), rgb(239,123,69));
     grid-area: header;
     display: grid;
     grid-template-columns: 1fr;
@@ -70,6 +72,7 @@ header div{
 
 .navbar {
     background-color: #D84727;
+    /* background: linear-gradient(to bottom, rgb(216,71,39), rgb(239,123,69)); */
     color: #FFF9FB;
     height: 100%;
     display: grid;
@@ -186,12 +189,8 @@ nav {
 }
 
 
-/* section ----------------------------- */
-section {
-    grid-area: section;
-    background-color: #D84727;
-    min-height: 300px;
-}
+/* footer ----------------------------- */
+
 footer {
     grid-area: footer;
     background-color: #EF7B45;
@@ -206,7 +205,6 @@ footer {
         "nav nav nav nav"
         "main main main main"
         "aside aside aside aside"
-        "section section section section"
         "footer footer footer footer";
     }
     .linkBar {

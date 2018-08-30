@@ -3,11 +3,27 @@ const Trip = Model.Trip
 const User = Model.User
 
 class Controller {
+
+    static filterTrip(req,res){
+        return Trip.findAll({
+            where : {
+                location : req.body.filterLocation
+            }
+        })
+        .then(data =>{
+            res.render('dreamtrip',{err : null ,data :data})
+            console.log(req.body)
+        })
+        .catch(err =>{
+            res.send(err)  
+        })
+    }
     
     static list(req,res){
         return Trip.findAll()
         .then(data =>{
             res.render('dreamtrip',{err : null ,data :data})
+            console.log(req.body)
         })
         .catch(err =>{
             res.send(err)  

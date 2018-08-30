@@ -13,7 +13,19 @@
         <main style="column-count:1;">
                 <div class="postCard">
                         <h1><%= data.title %></h1>
+                        <h1>
+                            <div>
+                                <a href="/trip/<%= data.id %>/edit">  Edit  </a> |
+                                <a href="/trip/<%= data.id %>/delete">  Delete  </a> 
+                            </div>
+                        </h1>
+                        <a href="/trip/<%= data.id %>/join">
+                        <button class="questionBtn">
+                            <h2>Join</h2> 
+                        </button>                                                    
+                        </a> 
                         <table >
+                            
                             <tr>
                                 <th>Destinasi</th>
                                 <td><%= data.location  %></td>
@@ -82,7 +94,6 @@
             </div>
         </nav>
 
-        <section></section>
         <footer></footer>
 
     </div>
