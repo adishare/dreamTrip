@@ -9,6 +9,9 @@ body {
     /* background: linear-gradient(to bottom, rgb(216,71,39),white); */
     
 }
+.banner:hover {
+    background-position: top;
+}
 /* content container ------------------- */
 
 #content{
@@ -98,12 +101,20 @@ main a {
     color: #252627;
 }
 main {
+    /* background-image: url(../wallpaper.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+    transition-duration: 12s; */
     grid-area: main;
     padding: 10px;
     display: block;
     min-height: 500px; 
     margin-bottom: 20px;   
 }
+/* main:hover {
+    background-position: top;
+} */
 .postCard {
     border-top: 4px solid rgb(252, 167, 55);
     background-color: #FFF9FB;
