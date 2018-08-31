@@ -3,24 +3,21 @@ const Routes = require('./routes')
 const path = require('path')
 const app = express()
 const bcrypt = require('bcrypt')
-// const morgan = require('morgan');
-
 const authentication = require("./helper/authentication.js");
 
+app.set('view engine', 'ejs')
+
 var session = require('express-session')
-var sess = {
-    key: 'user_sid',
+app.use(session({
+    key: 'username',
     secret: 'somerandonstuffs',
     resave: false,
     saveUninitialized: false,
     cookie: {
         expires: 600000
     }
-}
+}))
 
-app.set('view engine', 'ejs')
-// app.use(morgan('dev'))
-app.use(session(sess));
 
 app.get("/",function(req, res){
     let name = "dimas";
@@ -29,17 +26,17 @@ app.get("/",function(req, res){
         email:"alhusna901@gmail.com"
     };
     res.send(" session name sudah di set ");
-     //console.log( req.session );
+     
 });
 
 app.get("/dashboard",authentication,function(req,res){
-    //res.send(" session name : "+ req.session.name );
-    console.log("dashboard");
-    console.log( req.session.user );
+    res.redirect('/trip')
+    
+    
 });
 
 app.get("/login",function(req, res){
-    console.log(" ini login ");
+    res.render('login')
 })
 
 app.use(express.urlencoded({ extended : false }))
