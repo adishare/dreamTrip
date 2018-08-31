@@ -85,8 +85,13 @@ select ,option {
     padding: 10px 10px;
     width: 180px;
 }
+/*  login page ---------------------*/
+.loginForm {
+    display: grid;
+    max-width: 400px;
+    align-self: center;
 
-
+}
 /*  main conten post ---------------------*/
 main a {
     text-decoration: none;
@@ -182,6 +187,7 @@ form button {
     color: #ffffff;
     text-align: center;
     background-color: #4B88A2;
+    
 }
 
 nav {
