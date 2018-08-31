@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/franshiro/DreamTrip#readme",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
     "pg": "^7.4.3",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.1.1"

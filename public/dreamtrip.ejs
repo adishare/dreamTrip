@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DreamTrip</title>
+    <link rel="stylesheet" href="/styles/dreamtrip.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Old+Standard+TT" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <div id="content">
+
+        <%- include header.ejs %>
+
+        <nav>
+            <div class="navbar">
+                <form action="/trip/filter" method="POST">
+                <div>
+                <select id="filterLocation" name="filterLocation" onchange="changeFunc();">
+                    <option>Filter by Destination</option>
+                    <% data.forEach(function(element){ %>
+                    <option value="<%= element.location  %>"><%= element.location  %></option>
+                    <% }) %>
+                </select>
+                <button type="submit">Filter</button>
+                </div>
+                </form>
+            </div>
+        </nav>
+
+        <main>
+            <% data.forEach(trip =>{ %>
+                <a href="/trip/<%= trip.id %>">
+                <div class="postCard">
+                    <h1><%= trip.title %></h1>
+                    <table >
+                        <tr>
+                            <th>Destinasi</th>
+                            <td><%= trip.location  %></td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal</th>
+                            <td><%= trip.date  %></td>
+                        </tr>
+                        <tr>
+                            <th>Biaya</th>
+                            <td><%= trip.cost  %></td>
+                        </tr>
+                        <tr>
+                            <th>Meet Point</th>
+                            <td><%= trip.meet_point  %></td>
+                        </tr>
+                        <tr>
+                            <th>Max Participant</th>
+                            <td><%= trip.max  %></td>
+                        </tr>
+                    </table>
+
+
+                </div>
+                </a>
+            <% }) %>
+
+
+        </main>
+
+        <aside>
+            <div class="asideForm">
+                <hr>
+                <h2>CREATE NEW TRIP</h2>
+
+                <form action="trip/add" method="post">
+                    <input type="text" name="title" placeholder="Trip Title">
+                    <input type="text" name="location" placeholder="Location">
+                    <input onfocus="(this.type='date')" name="date" placeholder="Date" max="2019-12-31" min="2018-07-31">
+                    <input type="text" name="meet_point" placeholder="Meet Point">
+                    <input type="number" name="cost" min="0" max="99999999" step="any" placeholder="Sharing Cost">
+                    <input type="number" name="max" min="2" max="200" placeholder="Max Quota">
+                    <div>
+                        <button type="submit" class="newTripBtn">CREATE TRIP</button>
+                    </div>
+                </form>
+                
+            </div>
+        </aside>
+
+        
+
+        <footer></footer>
+
+    </div>
+    
+</body>
+</html>
