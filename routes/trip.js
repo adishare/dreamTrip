@@ -1,7 +1,8 @@
 const Routes = require('express').Router()
 const controller = require('../controller')
+const authentication = require("../helper/authentication.js");
 
-Routes.get('/', controller.Trip.list)
+Routes.get('/',authentication, controller.Trip.list)
 Routes.post('/add', controller.Trip.addTrip)
 
 Routes.get('/:id/edit', controller.Trip.showEditTrip)

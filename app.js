@@ -3,7 +3,7 @@ const Routes = require('./routes')
 const path = require('path')
 const app = express()
 const bcrypt = require('bcrypt')
-const authentication = require("./helper/authentication.js");
+//const authentication = require("./helper/authentication.js");
 
 app.set('view engine', 'ejs')
 
@@ -18,26 +18,30 @@ app.use(session({
     }
 }))
 
+// app.get("/",function(req, res){
+//     let name = "dimas";
+//     req.session.user = {
+//         name:"Dimas",
+//         email:"alhusna901@gmail.com"
+//     };
+//     res.send(" session name sudah di set ");
+// });
 
-app.get("/",function(req, res){
-    let name = "dimas";
-    req.session.user = {
-        name:"Dimas",
-        email:"alhusna901@gmail.com"
-    };
-    res.send(" session name sudah di set ");
-     
-});
-
-app.get("/dashboard",authentication,function(req,res){
+/* app.get("/trip",authentication,function(req,res){
     res.redirect('/trip')
-    
-    
-});
+});*/
 
 app.get("/login",function(req, res){
     res.render('login')
 })
+app.post("/login",function(req, res){
+    req.session.user = {
+        username: req.body.username,
+        password: req.body.password
+    };
+    res.redirect('/trip')
+})
+
 
 app.use(express.urlencoded({ extended : false }))
 app.use(express.static(path.join(__dirname + '/public')))
